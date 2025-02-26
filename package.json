@@ -1,0 +1,16 @@
+{
+  "name": "lista-pulizie",
+  "version": "1.0.0",
+  "homepage": "https://tuo-username.github.io/lista-pulizie",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "gh-pages": "^5.0.0"
+  }
+}
