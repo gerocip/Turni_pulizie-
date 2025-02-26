@@ -1,0 +1,53 @@
+import React, { useState } from "react";
+import "./style.css";
+
+const ListaPulizie = () => {
+  const [area, setArea] = useState("");
+  const [nome, setNome] = useState("");
+  const [data, setData] = useState("");
+  const [storico, setStorico] = useState([]);
+
+  const aggiungiPulizia = () => {
+    if (area && nome && data) {
+      setStorico([...storico, { area, nome, data }]);
+      setArea("");
+      setNome("");
+      setData("");
+    }
+  };
+
+  return (
+    <div className="container">
+      <h2>Lista Pulizie</h2>
+      
+      <label>Area Pulita:</label>
+      <select value={area} onChange={(e) => setArea(e.target.value)}>
+        <option value="">Seleziona...</option>
+        <option value="Cucina">Cucina</option>
+        <option value="Bagno">Bagno</option>
+      </select>
+
+      <label>Nome:</label>
+      <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
+
+      <label>Data:</label>
+      <input type="date" value={data} onChange={(e) => setData(e.target.value)} />
+
+      <button onClick={aggiungiPulizia}>Area Pulita</button>
+
+      <h3>Storico Pulizie</h3>
+      <div className="storico">
+        {storico.map((item, index) => (
+          <div key={index} className="storico-item">
+            <strong>{item.area}</strong> - {item.nome} - {item.data}
+          </div>
+        ))}
+      </div>
+      
+      <img src="https://i.imgur.com/your-scopa.png" alt="Scopa" className="icon" />
+      <img src="https://i.imgur.com/your-secchio.png" alt="Secchio con mocio" className="icon" />
+    </div>
+  );
+};
+
+export default ListaPulizie;
